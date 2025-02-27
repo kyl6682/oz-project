@@ -117,10 +117,10 @@ const SubNav = () => {
     return (
         <StyledSubNav>
             {categories.map((el) => (
-                <CategoryLink key={el.name} to={el.link}>
+                <DesktopCategoryLink key={el.name} to={el.link}>
                     {el.icon}
                     {el.name}
-                </CategoryLink>
+                </DesktopCategoryLink>
             ))}
         </StyledSubNav>
     );

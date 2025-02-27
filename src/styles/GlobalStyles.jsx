@@ -28,6 +28,9 @@ const GlobalStyle = createGlobalStyle`
       outline-style: none;
     }
   }
+  li {
+    list-style: none;
+  }
 `
 
 export default GlobalStyle;
