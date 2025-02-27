@@ -76,8 +76,6 @@ const CategoryLink = styled(Link)`
 
 // 데스크탑 네비 개별 링크 스타일 
 const DesktopCategoryLink = styled(CategoryLink)`
-    color: #fff;
-    opacity: 0.5;
         &:not(:last-child) {
         border-right: 1px solid rgba(255, 255, 255, 0.5);
         padding-right: 2.5rem;
