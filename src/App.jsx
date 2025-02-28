@@ -1,6 +1,7 @@
-import Header from './components/Header'
-import Footer from './components/Footer'
+import Header from './components/common/Header'
+import Footer from './components/common/Footer'
 import GlobalStyle from './styles/GlobalStyles'
+import HeroSection from './components/home/HeroSection'
 
 function App() {
 
@@ -8,7 +9,7 @@ function App() {
     <>
       <GlobalStyle />
       <Header />
-      <div>Noto Sans 폰트?</div>
+      <HeroSection /> 
       <Footer />
     </>
   )
