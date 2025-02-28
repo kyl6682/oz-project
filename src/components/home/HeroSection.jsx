@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
 import styled from "styled-components";
+import useResponsive from "../../hooks/useResponsive";
 
 const HeaderStyle = styled.section`
 background-color: #211C24;
@@ -61,18 +61,7 @@ const DesktopHeroSection = () => {
 
 // 반응형 헤더 컴포넌트
 function HeroSection() {
-    const [isMobile, setIsMobile] = useState(typeof window !== "undefined" && window.innerWidth <= 768);
-
-    useEffect(() => {
-        const handleResize = () => {
-            setIsMobile(window.innerWidth <= 768);
-        };
-
-        window.addEventListener("resize", handleResize);
-        return () => {
-            window.removeEventListener("resize", handleResize);
-        };
-    }, []);
+    const isMobile = useResponsive();
 
     return isMobile ?
         <MobileHeroSection /> : <DesktopHeroSection />;
