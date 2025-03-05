@@ -13,6 +13,9 @@ const GlobalStyle = createGlobalStyle`
   }
   body {
     font-family: 'Noto_Sans', sans-serif;
+    display: flex;
+    flex-direction: column;
+  
   }
   input {
     background-color: transparent;
