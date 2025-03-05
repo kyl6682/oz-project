@@ -2,15 +2,13 @@ import styled from "styled-components";
 import { Logo } from "./Logo";
 
 const FooterDiv = styled.div`
-    position: absolute;
-    bottom: 0;
     width: 100%;
     background-color: #111;
     padding: 104px 160px;
     color: #fff;
     display: flex;
     justify-content: space-between;
-    align-items: start;
+    align-self: end;
 `;
 
 const StyledSection = styled.section`
