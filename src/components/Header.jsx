@@ -145,29 +145,5 @@ const MobileHeader = () => {
     );
 };
 
-// 반응형 헤더 컴포넌트
-function Header() {
-    const [isMobile, setIsMobile] = useState(typeof window !== "undefined" && window.innerWidth <= 768);
-
-    useEffect(() => {
-        const handleResize = () => {
-            setIsMobile(window.innerWidth <= 768);
-        };
-
-        window.addEventListener("resize", handleResize);
-        return () => {
-            window.removeEventListener("resize", handleResize);
-        };
-    }, []);
-
-    return isMobile ? (
-        <MobileHeader />
-    ) : (
-        <>
-            <HeaderTop isMobile={isMobile} />
-            <SubNav />
-        </>
-    );
-}
 
 export default Header;
