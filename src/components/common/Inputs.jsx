@@ -22,7 +22,7 @@ const StyledInput = styled.div`
     }
 `
 
-export const SearchInput = ({ width }) => {
+export const SearchInput = ( width ) => {
     return (
         <>
             <StyledInput width={width}>

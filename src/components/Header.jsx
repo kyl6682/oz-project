@@ -14,7 +14,7 @@ const HeaderDiv = styled.div`
     justify-content: space-between;
     align-items: center;
     gap: 32px;
-    padding: ${(props) => (props.isMobile ? "16px" : "18px 160px")}; 
+    padding: ${(props) => (props.$isMobile ? "16px" : "18px 160px")}; 
 `;
 
 // 네비게이션 스타일
@@ -91,9 +91,9 @@ const MobileCategoryLink = styled(CategoryLink)`
 `
 
 // 상단 헤더 컴포넌트
-const HeaderTop = ({ isMobile }) => {
+const HeaderTop = ( {isMobile} ) => {
     return (
-        <HeaderDiv isMobile={isMobile}>
+        <HeaderDiv $isMobile={isMobile}>
             <Logo />
             <SearchInput width="35%" />
             <HeaderNav width="35%">
