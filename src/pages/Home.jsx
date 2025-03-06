@@ -3,6 +3,7 @@ import HeroSection from '../components/home/HeroSection';
 import PromotionsSection from '../components/home/PromotionsSection';
 import CategorySection from '../components/home/CategorySection';
 import ProductsSection from '../components/home/ProductsSection';
+import BigPromotionSection from '../components/home/BigPromotionSection';
 
 
 const MainContent = styled.main`
@@ -18,6 +19,7 @@ function Home() {
           <PromotionsSection />
           <CategorySection />
           <ProductsSection />
+          <BigPromotionSection />
         </MainContent>
       </>
   );

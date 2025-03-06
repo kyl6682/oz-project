@@ -20,7 +20,7 @@ const CategoryGrid = styled.div`
 const CategoryCard = styled(Link)`
   width: 160px;
   height: 128px;
-  background-color: #f2f2f2;
+  background-color: #4d4d4d;
   border-radius: 16px;
   display: flex;
   flex-direction: column;
@@ -28,7 +28,7 @@ const CategoryCard = styled(Link)`
   align-items: center;
   font-size: 16px;
   font-weight: 500;
-  color: #000;
+  color: #a5a5a5;
   text-decoration: none;
 
   &:hover {
