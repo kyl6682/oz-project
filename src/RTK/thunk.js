@@ -1,30 +1,21 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-export const fetchMultipleProductsByCategory = createAsyncThunk(
-  'product/fetchMultipleProductsByCategory',
+export const fetchAllProducts = createAsyncThunk(
+  'product/fetchAllProducts',
   async () => {
-    const fetchAPI = async (url) => {
-      const response = await fetch(url);
-      return await response.json();
-    };
+    const response = await fetch('https://api.escuelajs.co/api/v1/products');
+    const products = await response.json();
 
-    const categories = await fetchAPI(
-      `https://api.escuelajs.co/api/v1/categories`
-    );
+    // 상품 데이터 정리
+    const processedProducts = products.map((product) => ({
+      id: product.id,
+      name: product.title,
+      image: product.images[0],
+      price: product.price,
+      description: product.description,
+      category: product.category.name, 
+    }));
 
-    const selectedCategories = categories.slice(0, 6); 
-
-    const productsData = {};
-
-    await Promise.all(
-      selectedCategories.map(async (category) => {
-        const products = await fetchAPI(
-          `https://api.escuelajs.co/api/v1/categories/${category.id}/products`
-        );
-        productsData[category.name] = products;
-      })
-    );
-
-    return productsData; 
+    return processedProducts; 
   }
 );

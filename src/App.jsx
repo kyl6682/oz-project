@@ -1,27 +1,26 @@
 import Header from './components/common/Header';
 import Footer from './components/common/Footer';
 import GlobalStyle from './styles/GlobalStyles';
-import HeroSection from './components/home/HeroSection';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchMultipleProductsByCategory } from './RTK/thunk';
+import styled from 'styled-components';
+import Home from './pages/Home';
+
+const PageWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+`;
 
 function App() {
-  const dispatch = useDispatch();
-  const productData = useSelector(state => state.product)
-  console.log(productData)
 
-  useEffect(() => {
-    dispatch(fetchMultipleProductsByCategory())
-  }, [dispatch]);
 
   return (
     <>
-      <GlobalStyle />
-      <Header />
-      <HeroSection />
-      <section></section>
-      <Footer />
+      <PageWrapper>
+        <GlobalStyle />
+        <Header />
+        <Home />
+        <Footer />
+      </PageWrapper>
     </>
   );
 }

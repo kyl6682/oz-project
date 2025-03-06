@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchMultipleProductsByCategory } from './thunk';
+import { fetchAllProducts } from './thunk';
 
 export const productSlice = createSlice({
   name: 'product',
   initialState: {
-    data: {},
+    data: [], // 배열로 변경!
     favorites: [],
     loading: true,
   },
@@ -22,14 +22,14 @@ export const productSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchMultipleProductsByCategory.pending, (state) => {
+      .addCase(fetchAllProducts.pending, (state) => {
         state.loading = true;
       })
-      .addCase(fetchMultipleProductsByCategory.fulfilled, (state, action) => {
+      .addCase(fetchAllProducts.fulfilled, (state, action) => {
         state.loading = false;
-        state.data = action.payload;
+        state.data = action.payload; // 배열로 저장
       })
-      .addCase(fetchMultipleProductsByCategory.rejected, (state) => {
+      .addCase(fetchAllProducts.rejected, (state) => {
         state.loading = false;
       });
   },
