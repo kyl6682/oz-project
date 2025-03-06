@@ -4,7 +4,7 @@ import { fetchAllProducts } from './thunk';
 export const productSlice = createSlice({
   name: 'product',
   initialState: {
-    data: [], // 배열로 변경!
+    data: [], 
     favorites: [],
     loading: true,
   },
@@ -27,7 +27,7 @@ export const productSlice = createSlice({
       })
       .addCase(fetchAllProducts.fulfilled, (state, action) => {
         state.loading = false;
-        state.data = action.payload; // 배열로 저장
+        state.data = action.payload; 
       })
       .addCase(fetchAllProducts.rejected, (state) => {
         state.loading = false;
