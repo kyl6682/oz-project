@@ -4,31 +4,31 @@ export const categories = [
     {
       name: 'Clothes',
       icon : <PhonesIcon />,
-      link: '/phones'
+      link: 'products/Clothes'
     },
     {
       name: 'Electronics',
       icon : <ComputersIcon />,
-      link: '/computers'
+      link: 'products/Electronics'
     },
     {
       name: 'Furniture',
       icon : <SmartWatchesIcon />,
-      link: '/smartwatches'
+      link: 'products/Furniture'
     },
     {
       name: 'Shoes',
       icon : <CamerasIcon />,
-      link: '/cameras'
+      link: 'products/Shoes'
     },
     {
       name: 'Miscellaneous',
       icon : <HeadphonesIcon />,
-      link: '/headphones'
+      link: 'products/Miscellaneous'
     },
     {
       name: 'string',
       icon : <GamingIcon />,
-      link: '/gaming'
+      link: 'products/string'
     }
   ];
