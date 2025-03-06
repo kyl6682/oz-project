@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import HeroSection from '../components/home/HeroSection';
 import { ProductsSection } from '../components/home/ProductsSection';
+import Promotions from '../components/home/Promotions';
 
 
 const MainContent = styled.main`
@@ -13,6 +14,7 @@ function Home() {
         <>
         <MainContent>
           <HeroSection />
+          <Promotions />
           <ProductsSection />
         </MainContent>
       </>

@@ -1,13 +1,13 @@
-// src/components/Products.jsx
 import styled from 'styled-components';
 import Product from './Product';
+import PropTypes from "prop-types";
+
 
 const ProductsWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   justify-content: start;
-  padding: 32px 160px;
 `;
 
 const Products = ({ products }) => (
@@ -22,5 +22,17 @@ const Products = ({ products }) => (
     ))}
   </ProductsWrapper>
 );
+
+Products.propTypes = {
+    products: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+        price: PropTypes.number.isRequired,
+        image: PropTypes.string,
+        images: PropTypes.arrayOf(PropTypes.string),
+      })
+    ).isRequired,
+  };
 
 export default Products;

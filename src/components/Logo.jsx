@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export const Logo = ({color = "black"}) => {
     return (
         <svg width="96" height="32" viewBox="0 0 96 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -10,3 +12,7 @@ export const Logo = ({color = "black"}) => {
         </svg>
     )
 }
+
+Logo.propTypes = {
+    color: PropTypes.string,
+  };
