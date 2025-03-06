@@ -18,7 +18,7 @@ const CategoryGrid = styled.div`
 `;
 
 const CategoryCard = styled(Link)`
-  width: 160px;
+  width: 15%;
   height: 128px;
   background-color: #4d4d4d;
   border-radius: 16px;
