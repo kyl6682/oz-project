@@ -7,6 +7,9 @@ import { SearchInput } from './Inputs';
 import { categories } from '../../assets/Data/Categories';
 import PropTypes from 'prop-types';
 
+const NAV_WIDTH = '35%';
+const ICONS_WIDTH = '15%';
+
 // 상단 헤더 스타일
 const HeaderDiv = styled.div`
   width: 100%;
@@ -29,10 +32,10 @@ const HeaderNav = styled.nav`
 // 네비게이션 링크 스타일
 const HeaderLink = styled(Link)`
   text-decoration: none;
-  color: #000000;
+  color: #000;
   opacity: 0.3;
-  &:active,
-  &:hover {
+  &:hover,
+  &:active {
     opacity: 1;
   }
 `;
@@ -60,7 +63,7 @@ const StyledSubNav = styled.nav`
   align-items: center;
   gap: 2.5rem;
   background-color: #2e2e2e;
-  overflow: scroll;
+  overflow-x: auto;
 `;
 
 // 서브 네비의 개별 링크 스타일
@@ -71,108 +74,104 @@ const CategoryLink = styled(Link)`
   align-items: center;
   gap: 8px;
   text-decoration: none;
+  color: #fff;
   opacity: 0.5;
   &:hover {
     opacity: 1;
   }
 `;
 
-// 데스크탑 네비 개별 링크 스타일
 const DesktopCategoryLink = styled(CategoryLink)`
   &:not(:last-child) {
     border-right: 1px solid rgba(255, 255, 255, 0.5);
     padding-right: 2.5rem;
-    color: #fff;
   }
 `;
-// 모바일 네비 개별 링크 스타일
+
 const MobileCategoryLink = styled(CategoryLink)`
   flex-direction: column;
-  align-items: center;
   color: #000;
   padding: 16px;
 `;
 
 // 상단 헤더 컴포넌트
-const HeaderTop = ({ isMobile }) => {
-  return (
-    <HeaderDiv isMobile={isMobile}>
-      <Logo />
-      <SearchInput width="35%" />
-      <HeaderNav width="35%">
-        <HeaderLink to="#">Home</HeaderLink>
-        <HeaderLink to="#">About</HeaderLink>
-        <HeaderLink to="#">Contact Us</HeaderLink>
-        <HeaderLink to="#">Blog</HeaderLink>
-      </HeaderNav>
-      <HeaderIcons width="15%">
-        <HeaderIcon>
-          <LikeIcon />
-        </HeaderIcon>
-        <HeaderIcon>
-          <CartIcon />
-        </HeaderIcon>
-        <HeaderIcon>
-          <UserIcon />
-        </HeaderIcon>
-      </HeaderIcons>
-    </HeaderDiv>
-  );
+const HeaderTop = ({ isMobile }) => (
+  <HeaderDiv isMobile={isMobile}>
+    <Logo />
+    <SearchInput width={NAV_WIDTH} />
+    <HeaderNav width={NAV_WIDTH}>
+      <HeaderLink to="#">Home</HeaderLink>
+      <HeaderLink to="#">About</HeaderLink>
+      <HeaderLink to="#">Contact Us</HeaderLink>
+      <HeaderLink to="#">Blog</HeaderLink>
+    </HeaderNav>
+    <HeaderIcons width={ICONS_WIDTH}>
+      <HeaderIcon>
+        <LikeIcon />
+      </HeaderIcon>
+      <HeaderIcon>
+        <CartIcon />
+      </HeaderIcon>
+      <HeaderIcon>
+        <UserIcon />
+      </HeaderIcon>
+    </HeaderIcons>
+  </HeaderDiv>
+);
+
+HeaderTop.propTypes = {
+  isMobile: PropTypes.bool.isRequired,
 };
 
 // 서브 네비게이션 컴포넌트
-const SubNav = () => {
-  return (
-    <StyledSubNav>
-      {categories.map((el) => (
-        <DesktopCategoryLink key={el.name} to={el.link}>
-          {el.icon}
-          {el.name}
-        </DesktopCategoryLink>
-      ))}
-    </StyledSubNav>
-  );
-};
+const SubNav = () => (
+  <StyledSubNav>
+    {categories.map((el) => (
+      <DesktopCategoryLink key={el.name} to={el.link}>
+        {el.icon}
+        {el.name}
+      </DesktopCategoryLink>
+    ))}
+  </StyledSubNav>
+);
 
 // 모바일 헤더 컴포넌트
 const MobileHeader = () => {
   const [isOpen, setIsOpen] = useState(false);
+
   return (
     <>
-      <HeaderDiv isMobile={true}>
+      <HeaderDiv isMobile>
         <Logo />
         <button onClick={() => setIsOpen(!isOpen)}>
           <HamburgerIcon />
         </button>
       </HeaderDiv>
-      {isOpen ? (
-        <ul>
+      {isOpen && (
+        <div>
           {categories.map((el) => (
             <MobileCategoryLink key={el.name} to={el.link}>
               {el.name}
             </MobileCategoryLink>
           ))}
-        </ul>
-      ) : null}
+        </div>
+      )}
     </>
   );
 };
 
 // 반응형 헤더 컴포넌트
 function Header() {
-  const [isMobile, setIsMobile] = useState(
-    typeof window !== 'undefined' && window.innerWidth <= 768,
-  );
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
     };
 
+    handleResize(); // 초기 체크
     window.addEventListener('resize', handleResize);
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   return isMobile ? (
@@ -184,9 +183,5 @@ function Header() {
     </>
   );
 }
-
-HeaderTop.propTypes = {
-  isMobile: PropTypes.bool.isRequired,
-};
 
 export default Header;

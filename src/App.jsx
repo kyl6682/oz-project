@@ -11,12 +11,10 @@ const PageWrapper = styled.div`
 `;
 
 function App() {
-
-
   return (
     <>
+      <GlobalStyle />
       <PageWrapper>
-        <GlobalStyle />
         <Header />
         <Home />
         <Footer />

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import useResponsive from "../../hooks/useResponsive";
+import IphoneImage from "../../assets/Images/IphoneImage.png"
 
 const HeaderStyle = styled.section`
 background-color: #211C24;
@@ -36,7 +37,7 @@ const HeroSectionBase = () => {
                 <WhiteStrokeButton>Shop Now</WhiteStrokeButton>
             </div>
             <div>
-                <img src='./src/assets/Images/Iphone Image.png' />
+                <img src={IphoneImage}/>
             </div>
         </>
     )

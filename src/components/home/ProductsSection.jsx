@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAllProducts } from '../../RTK/thunk';
 import styled from 'styled-components';
-import Products from '../Products';
+import Products from '../common/Products';
 
-const categories = ['All', 'Clothes', 'Electronics', 'Furniture', 'Shoes'];
+const categories = ['All', 'Clothes', 'Electronics', 'Furniture', 'Shoes', 'Miscellaneous' ,'string'];
 
 const ProductsWrapper = styled.div`
   padding: 32px 160px;
@@ -28,7 +28,7 @@ const FilterButtons = styled.div`
   }
 `;
 
-export const ProductsSection = () => {
+function ProductsSection() {
   const dispatch = useDispatch();
   const { data, loading } = useSelector((state) => state.product);
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -62,7 +62,7 @@ export const ProductsSection = () => {
         {loading ? (
           <p>로딩 중...</p>
         ) : !filteredProducts.length ? (
-          <p>상품이 없습니다.</p>
+          <p>상품 준비중입니다.</p>
         ) : (
           <Products products={displayedProducts} />
         )}
@@ -70,3 +70,5 @@ export const ProductsSection = () => {
     </>
   );
 };
+
+export default ProductsSection;

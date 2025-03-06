@@ -1,33 +1,33 @@
-import { CamerasIcon, ComputersIcon, GamingIcon, HeadphonesIcon, PhonesIcon, SmartWatchesIcon } from "../../components/Icons";
+import { CamerasIcon, ComputersIcon, GamingIcon, HeadphonesIcon, PhonesIcon, SmartWatchesIcon } from "../../components/common/Icons";
 
 export const categories = [
     {
-      name: 'Phones',
+      name: 'Clothes',
       icon : <PhonesIcon />,
       link: '/phones'
     },
     {
-      name: 'Computers',
+      name: 'Electronics',
       icon : <ComputersIcon />,
       link: '/computers'
     },
     {
-      name: 'SmartWatches',
+      name: 'Furniture',
       icon : <SmartWatchesIcon />,
       link: '/smartwatches'
     },
     {
-      name: 'Cameras',
+      name: 'Shoes',
       icon : <CamerasIcon />,
       link: '/cameras'
     },
     {
-      name: 'Headphones',
+      name: 'Miscellaneous',
       icon : <HeadphonesIcon />,
       link: '/headphones'
     },
     {
-      name: 'Gaming',
+      name: 'string',
       icon : <GamingIcon />,
       link: '/gaming'
     }

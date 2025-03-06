@@ -64,7 +64,7 @@ const Item3_4_7_8 = styled(Item)`
   background-color: #ededed;
 `;
 
-export default function GridExample() {
+function PromotionsSection() {
   return (
     <GridWrapper>
       <Item1_2>
@@ -137,3 +137,5 @@ export default function GridExample() {
     </GridWrapper>
   );
 }
+
+export default PromotionsSection;
